@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<link href="css/style.css" rel="stylesheet">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="lib/leaflet.css" type="text/css">
+		<script  src="lib/leaflet.js" ></script>
+		<link rel="icon" href="img/sigma.png" type="image/icon type">
+		<title> PROJET SIGMA </title>
+	</head>
+
+	<header>
+		<div id="title">Classification de la BD forêt</div>
+	</header>
+	
+	
+	<body >	
+		<div id="map-container">
+			<hr class="line" color="green"> <!-- Trait vert au début du body -->
+			<div id="map">
+				<img src="img/legend.jpg" class="legende">
+				<img src="img/north_arrow.png"  class="arrow">
+			</div>
+			<hr class="line" color="green"> <!-- Trait vert à la fin du body -->
+		</div>
+	</body>
+	<footer>
+		<img src="img/ut2j.jpg" alt="Image 1" class="footer-image left">
+		<div class="description">
+			<p>
+				<center>Cette carte a été conçue dans le cadre du projet de télédétection du master 2 SIGMA, visant à visualiser les résultats de la classification de la BD Forêt. La couche "Classification niveau 2 from 3"
+					représente les prédictions obtenues pour une classification de niveau 3 regroupée selon la nomenclature de niveau 2 grâce à notre modèle.</center>
+			</p>
+		</div>
+		<img src="img/ensat.jpg" alt="Image 2" class="footer-image right">
+		<!-- Texte ou contenu supplémentaire du footer -->
+	</footer>
+
+</html>
+
+<script>
+var macarte = L.map('map').setView([43.5796,1.38605], 10); 
+var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 20
+}).addTo(macarte);
+
+var fond_osm=L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+    attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	});	
+
+
+var ortho = L.tileLayer.wms('https://wxs.ign.fr/essentiels/geoportail/r/wms?', {
+    layers: 'ORTHOIMAGERY.ORTHOPHOTOS'});
+
+var classif = L.tileLayer.wms('https://www.geotests.net/geoserver/m_joffrion/wms?', {
+                layers: 'm_joffrion:lvl2_from_lvl3',
+                format: 'image/png',
+                transparent: true,
+                styles: 'style_lvl2_from_lvl3'}).addTo(macarte);
+
+var baseMaps={
+	"CartoDB":CartoDB_Positron,
+	"Fond OSM": fond_osm,
+	"Ortho - IGN":ortho
+};
+var overlay={
+	"Classification niveau 2 from 3":classif
+}
+L.control.layers(baseMaps, overlay).addTo(macarte);
+// Ajout de l'échelle
+var scaleControl = L.control.scale();
+scaleControl.addTo(macarte);
+
+</script>

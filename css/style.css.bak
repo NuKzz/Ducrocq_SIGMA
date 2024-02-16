@@ -1,0 +1,57 @@
+h1 {
+  color: #FE0101;
+}
+
+header.aller {
+    background-image: url(img/Test.jpg);
+
+}
+header.aller > h1 {
+    font: bold calc(1em + 2 * (100vw - 120px) / 100) 'Dancing Script', cursive,
+        fantasy;
+    margin: 2%;
+}
+
+body{
+	font-family:'Droit Sans','sans-serif';
+	margin-right:15%;
+	margin-left:15%;
+	
+}
+
+* {
+  box-sizing: border-box;
+}
+
+article {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
+.container {
+  display: table;
+  width: 100%;
+}
+
+.left-half {
+  background-color: #ff9e2c;
+  position: absolute;
+  left:300px;
+  width: 40%;
+  height:600px;
+}
+
+.right-half {
+  background-color: #b6701e;
+  position: absolute;
+  right:200px;
+  width: 40%;
+  height:600px;
+}
+section {
+  color: #010000;
+  text-align: center;
+}

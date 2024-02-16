@@ -1,0 +1,86 @@
+#title {
+  color: #000000;
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+  font-family: American Typewriter, serif;
+}
+
+header {
+  position: fixed; /* Le header reste fixé à sa place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px; /* Ajoutez votre espacement ici */
+}
+
+#map { 
+  margin: 0;
+  height: 80vh; /* La carte occupe 80% de la hauteur de l'écran */
+  width: 100%; /* La carte occupe toute la largeur disponible */
+       }
+#map-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.legende {
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
+  width: 250px;
+  height: 15%;
+  z-index: 1000;
+}
+.arrow {
+  position: absolute;
+  bottom: 150px;
+  right: 25px;
+  width: 50px;
+  height: 8%;
+  z-index: 1000;
+}
+body{
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+}
+.line {
+  width: 99.5%;
+  height: 5px;
+  margin: 0 auto; /* Centre le trait horizontal */
+}
+.description{
+  font-style: italic;
+  font-weight: bold;
+  width: 80%; /* Paragraphe limité à 80% de la largeur de l'écran */
+  margin: 0 auto; 
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer-image {
+  width: 5%; /* Largeur de l'image */
+  height: auto; /* Hauteur ajustée automatiquement */
+  margin: 5px; /* Marge autour de l'image */
+  position: absolute; /* Position absolue pour placer l'image dans chaque coin */
+}
+
+.footer-image.left {
+  left: 10px; /* Image dans le coin gauche */
+  bottom: 10px;
+}
+
+.footer-image.right {
+  right: 10px; /* Image dans le coin droit */
+  bottom: 10px;
+}
