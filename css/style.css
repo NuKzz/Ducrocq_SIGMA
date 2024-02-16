@@ -61,6 +61,7 @@ body{
   font-weight: bold;
   width: 80%; /* Paragraphe limité à 80% de la largeur de l'écran */
   margin: 0 auto; 
+  height: 8vh;
 }
 footer {
   position: fixed;
