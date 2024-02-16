@@ -13,6 +13,7 @@ header {
   width: 100%;
   background-color: #ffffff;
   padding: 10px; /* Ajoutez votre espacement ici */
+  height: 5vh;
 }
 
 #map { 
